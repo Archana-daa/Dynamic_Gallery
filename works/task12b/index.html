@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input type="number" id="starCount" placeholder="Enter a number" min="1" oninput="createStarTriangle()">
+        <div id="patternOutput"></div>
+        
+        <script>
+            
+            function createStarTriangle() { 
+                let a = parseInt(document.getElementById("input_a").value);
+                let b = parseInt(document.getElementById("input_b").value);
+                let sum = 0;
+
+                for (let i = a; i <= b; i++) {
+                    sum += i
+                    }
+                    starPattern += "<br>";
+                }
+                
+                document.getElementById("patternOutput").innerHTML = starPattern;
+                document.getElementById("patternOutput").style = "color : " + colors[idx];
+                idx = (idx + 1) % colors.length;
+            
+        </script>
+    </body>
+</html>

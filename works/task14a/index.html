@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .insert-btn {
+            background-color: green;
+            color: white;
+        }
+        .show-btn {
+            background-color: skyblue;
+            color: white;
+        }
+        .clear-input-btn {
+            background-color: red;
+            color: white;
+        }
+        .clear-display-btn {
+            background-color: whitesmoke;
+            color: black;
+        }
+
+        #demo_div {
+            margin-top: 20px;
+        }
+
+        .student-info {
+            background-color: cornsilk;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .student-info h3 {
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid cornsilk;
+        }
+
+        .student-details {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .student-details span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>STUDENT</h2>
+    <div>
+        <input id="name" placeholder="Enter Student Name">
+        <input id="username" placeholder="Enter Username">
+        <input id="sid" placeholder="Enter Student ID">
+        <input id="DoB" placeholder="Enter Date of Birth">
+    </div>
+    
+    <button onclick="insert()" class="insert-btn">Insert Info</button>
+    <button onclick="show_student_info()" class="show-btn">Show Student Info</button>
+    <button onclick="clear_input()" class="clear-input-btn">Clear Input</button>
+    <button onclick="clear_display()" class="clear-display-btn">Clear Display</button>
+
+    <div>
+        <input id="search_name" placeholder="Search student by name..." oninput="search_student()">
+    </div>
+
+    <h1 id="name_header"></h1>
+    <div id="demo_div"></div>
+
+    <script>
+        let students = [];
+
+        function Student(name, username, sid, DoB) {
+            this.name = name;
+            this.username = username;
+            this.sid = sid;
+            this.DoB = DoB;
+            this.describe = function() {
+                return `<div class="student-info">
+                            <h3>Student Info</h3>
+                            <p class="student-details"><span>ID:</span> ${this.sid}</p>
+                            <p class="student-details"><span>Name:</span> ${this.name}</p>
+                            <p class="student-details"><span>Username:</span> ${this.username}</p>
+                            <p class="student-details"><span>Date of Birth:</span> ${this.DoB}</p>
+                        </div>`;
+            };
+        }
+
+        function insert() {
+            let name = document.getElementById("name").value;
+            let username = document.getElementById("username").value;
+            let sid = document.getElementById("sid").value;
+            let DoB = document.getElementById("DoB").value;
+
+            if (name === "" || username === "" || sid === "" || DoB === "") {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            let new_student = new Student(name, username, sid, DoB);
+            students.push(new_student);
+
+            document.getElementById("name_header").innerHTML = `Latest Entry: ${new_student.name}`;
+            clear_input();
+        }
+
+        function show_student_info() {
+            let info = "";
+            students.forEach(student => {
+                info += student.describe();
+            });
+            document.getElementById("demo_div").innerHTML = info;
+        }
+
+        function clear_input() {
+            document.getElementById("name").value = "";
+            document.getElementById("username").value = "";
+            document.getElementById("sid").value = "";
+            document.getElementById("DoB").value = "";
+        }
+
+        function clear_display() {
+            document.getElementById("demo_div").innerHTML = "";
+        }
+
+        function search_student() {
+            let search_name = document.getElementById("search_name").value.toLowerCase();
+            let found_students = students.filter(student => student.name.toLowerCase().includes(search_name));
+
+            let info = "";
+            if (found_students.length > 0) {
+                found_students.forEach(student => {
+                    info += student.describe();
+                });
+            } else {
+                info = "<p>No student found.</p>";
+            }
+
+            document.getElementById("demo_div").innerHTML = info;
+        }
+    </script>
+</body>
+</html>

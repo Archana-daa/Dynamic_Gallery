@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Setup and Task 5 Submission Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .step h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #444;
+        }
+        .git-command {
+            background-color: #e0e0e0;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-family: monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .repo-info {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>GitHub Setup and Task 5 Submission Guide</h1>
+
+    <div class="step">
+        <h3>1. Create and Setup your GitHub account</h3>
+        <p>
+            If you don't have a GitHub account, go to <a href="https://github.com/">https://github.com/</a> and sign up.
+        </p>
+    </div>
+
+    <div class="step">
+        <h3>2. Create a new repository for the class assignments</h3>
+        <p>
+            Create a new repository on GitHub for your class assignments.  You can either:
+        </p>
+        <ul>
+            <li>Create a public repository, or</li>
+            <li>Collaborate with <a href="https://github.com/aum-web-app">https://github.com/aum-web-app</a></li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h3>3. Pull the repository to your local machine</h3>
+        <p>
+            Clone the repository to your local machine using the <code>git clone</code> command.  Open your terminal or command prompt and navigate to the directory where you want to store your project.  Then, use the following command:
+        </p>
+        <code class="git-command">git clone &lt;repository_URL&gt;</code>
+        <p>
+            Replace <code>&lt;repository_URL&gt;</code> with the URL of your repository.
+        </p>
+    </div>
+
+    <div class="step">
+        <h3>4. Create a branch for Task 5: Calculator assignment</h3>
+        <p>
+            Create a new branch for your Task 5 assignment.  Use the following command:
+        </p>
+        <code class="git-command">git branch Task5_Calculator</code>
+    </div>
+
+    <div class="step">
+        <h3>5. Checkout to the newly created branch</h3>
+        <p>
+            Switch to the newly created branch using the <code>git checkout</code> command:
+        </p>
+        <code class="git-command">git checkout Task5_Calculator</code>
+    </div>
+
+    <div class="step">
+        <h3>6. Copy Task 5 (Calculator) files to your local repository</h3>
+        <p>
+            Copy your Task 5 (Calculator) files into your local repository within the <code>Task5_Calculator</code> branch.
+        </p>
+    </div>
+
+    <div class="step">
+        <h3>7. Stage all changes</h3>
+        <p>
+           Stage all the changes you've made using the <code>git add</code> command:
+        </p>
+        <code class="git-command">git add .</code>
+    </div>
+
+    <div class="step">
+        <h3>8. Push changes to remote with appropriate commit message</h3>
+        <p>
+            Commit your changes with a descriptive message and push them to the remote repository.
+        </p>
+        <code class="git-command">git commit -m "Added Task 5 Calculator files"</code>
+        <code class="git-command">git push origin Task5_Calculator</code>
+    </div>
+
+     <div class="step">
+        <h3>9. Make pull request and accept merge request</h3>
+        <p>
+            Create a pull request on GitHub to merge your <code>Task5_Calculator</code> branch into the <code>main</code> (or <code>master</code>) branch.  Once the pull request is reviewed and approved, merge it.
+        </p>
+    </div>
+
+    <div class="step">
+        <h3>10. Submit your repository URL and commit ID in Canvas</h3>
+        <p>
+            Submit the following information in Canvas:
+        </p>
+        <ul>
+            <li><strong>Repository URL:</strong>  The URL of your repository (e.g., <code>https://github.com/Archana-daa/Task5_calculator_DA.git</code>)</li>
+            <li><strong>Commit ID:</strong> The commit ID of the merge commit (the commit that merged your Task 5 branch into <code>main</code> or <code>master</code>).
+        </ul>
+    </div>
+
+    <div class="step">
+        <h3>11. Checkout to the main branch</h3>
+        <p>
+            Switch back to the main branch (<code>main</code> or <code>master</code>) using the <code>git checkout</code> command:
+        </p>
+        <code class="git-command">git checkout main</code>  or  <code class="git-command">git checkout master</code>
+    </div>
+
+    <div class="repo-info">
+        <h2>Repository Information</h2>
+        <p>
+            Repository URL: <a href="https://github.com/Archana-daa/Task5_calculator_DA.git">https://github.com/Archana-daa/Task5_calculator_DA.git</a>
+        </p>
+        <p>
+            Git Log (Oneline):
+        </p>
+        <code class="git-command">
+            46da25c (HEAD -> main, origin/main, origin/HEAD) Merge pull request #1 from Archana-daa/T5_AA<br>
+            e09e19a (origin/T5_AA, T5_AA) Add My File of Task 5:Calculator files<br>
+            cb8dd80 Initial commit
+        </code>
+        <p>
+            Git Log:
+        </p>
+        <code class="git-command">
+            commit 46da25c8331782d0dd34aab182ba0a280c8b2f9d (HEAD -> main, origin/main, origin/HEAD)<br>
+            Merge: cb8dd80 e09e19a<br>
+            Author: Archana-daa &lt;divyaarchanav9652@gmail.com&gt;<br>
+            Date:   Sat Feb 8 07:53:36 2025 +0530<br>
+            Merge pull request #1 from Archana-daa/T5_AA<br>
+            Add My File of Task 5:Calculator files<br><br>
+            commit e09e19a03d63cd91f316d7d4badbd1c4172b0746 (origin/T5_AA, T5_AA)<br>
+            Author: AA &lt;divyaarchanav9652gmail.com&gt;<br>
+            Date:   Sat Feb 8 07:51:20 2025 +0530<br>
+            Add My File of Task 5:Calculator files<br><br>
+            commit cb8dd801a7b7fe3a35acd5f08bedb7e6aba99d47<br>
+            Author: Archana-daa &lt;divyaarchanav9652@gmail.com&gt;<br>
+            Date:   Sat Feb 8 07:29:22 2025 +0530<br>
+            Initial commit
+        </code>
+    </div>
+</body>
+</html>

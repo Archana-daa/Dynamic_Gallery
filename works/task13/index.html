@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input id="name" placeholder="Enter Student Name">
+        <input id="username" placeholder="Enter Username">
+        <input id="sid" placeholder="Enter Student ID">
+        <input id="DoB" placeholder="Enter Date of Birth">
+    </div>
+    <button onclick="insert()">Insert Info</button>
+
+    <div id="demo_div"></div>
+    <h1 id="name_header"></h1>
+    <button onclick="show_person_info()">Show Info</button>
+
+    <script>
+        const students = [];
+
+        function insert() {
+            const student = {
+                Student_name: document.getElementById("name").value,
+                Student_username: document.getElementById("username").value,
+                Student_Id: document.getElementById("sid").value,
+                Student_year: document.getElementById("DoB").value,
+                description: function() {
+                    return "My name is " + this.Student_name + ". I am known as " + this.Student_username + ". My student ID is " + this.Student_Id + ". I was born in the year " + this.Student_year + ".";
+                }
+            };
+            students.push(student);
+            document.getElementById("name_header").innerHTML = student.Student_name;
+        }
+
+        function show_person_info() {
+            let info = "Student information: <br>";
+            students.forEach(student => {
+                info += student.description() + "</br>";
+            });
+            document.getElementById("demo_div").innerHTML = info;
+        }
+    </script>
+</body>
+</html>
