@@ -1,0 +1,15 @@
+<input type="number" id="starCount" placeholder="Enter a number" min="1" oninput="createStarTriangle()">
+<div id="patternOutput"></div>
+<script>
+function createStarTriangle() {
+let starRows = parseInt(document.getElementById("starCount").value);
+let starPattern = "";
+for (let row = 1; row <= starRows; row++) {
+for (let col = 1; col <= row; col++) {
+starPattern += "*";
+}
+starPattern += "<br>";
+}
+document.getElementById("patternOutput").innerHTML = starPattern;
+}
+</script>

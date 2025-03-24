@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Random Number Generator</title>
+</head>
+<body>
+    <div id="container_div">
+        <input id="input_a" placeholder="Enter Min Range">
+        <input id="input_b" placeholder="Enter Max Range">
+        <button onclick="Generate_random()" class="random_num">Generate Random Number</button>
+        <div id="output_div"></div>
+    </div>
+
+    <script>
+        function Generate_random() {
+            let min_value = parseInt(document.getElementById("input_a").value);
+            let max_value = parseInt(document.getElementById("input_b").value);
+            let random_value = Math.floor(Math.random() * (max_value - min_value + 1)) + min_value;
+            document.getElementById("output_div").innerHTML = random_value;
+        }
+
+        function clear_everything() {
+            document.getElementById("container_div").innerHTML = "<h1>It's magic!</h1>";
+        }
+
+        setInterval(clear_everything, 3000);
+    </script>
+</body>
+</html>

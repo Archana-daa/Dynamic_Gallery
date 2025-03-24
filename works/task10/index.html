@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Call Stack</title>
+</head>
+<body>
+
+    <h1>Task Call Stack</h1>
+
+    <div>
+        <input type="text" id="task_input" placeholder="Enter Task Name" />
+        <button onclick="Add_Task()">Add Task</button>
+        <button onclick="Undo_Task()">Undo Task</button>
+    </div>
+
+    <div id="pipeline">
+        <h2>Process Line:</h2>
+        <ul id="task_list"></ul>
+    </div>
+
+    <script>
+        let taskStack = [];
+
+        function Add_Task() {
+            const taskInput = document.getElementById("task_input");
+            const taskName = taskInput.value.trim();
+            if (taskName !== "") {
+                taskStack.push(taskName);
+                taskInput.value = "";
+                updatePipeline();
+            } else {
+                alert("Please enter a vaild task name");
+            }
+        }
+
+        function Undo_Task() {
+            if (taskStack.length > 0) {
+                taskStack.pop();
+                updatePipeline();
+            } else {
+                alert("No tasks to undo");
+            }
+        }
+
+        function updatePipeline() {
+            const taskList = document.getElementById("task_list");
+            taskList.innerHTML = "";
+            taskStack.forEach(task => {
+                const li = document.createElement("li");
+                li.textContent = task;
+                taskList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

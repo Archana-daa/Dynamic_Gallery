@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="outputContainer">
+        <p id="randomX"></p>
+        <p id="randomY"></p>
+    </div>
+
+    <script>
+        let x = Math.random();
+        console.log(x);
+        document.getElementById("randomX").textContent = "Random X: " + x;
+
+        let y = Math.floor(10 * Math.random());
+        console.log(y);
+        document.getElementById("randomY").textContent = "Random Y (0-9): " + y;
+    </script>
+</body>
+</html>
